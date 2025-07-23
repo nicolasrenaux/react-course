@@ -19,10 +19,6 @@ const books = [
 ];
 
 const BookList = () => {
-  const someValue = 'ShakeAndBake';
-  const displayValue = () =>{
-    console.log(someValue);
-  }
 
   const geetbook = (id) =>{
     const returnedBook = books.find((book) => book.id === id)
@@ -34,7 +30,7 @@ const BookList = () => {
         // const {img, author, title, id} = book;
         return (
           // <Book img = {img} author = {author} title = {title} key={id}/>
-          <Book {...book} key={book.id} displayValue={displayValue} getBook={geetbook}/>
+          <Book {...book} key={book.id} getBook={geetbook}/>
         )
       })}
     </section>
@@ -47,8 +43,8 @@ const Book = (props) => {
     fontSize: '1rem',
   }
 
-  const displayTitle = () =>{
-    console.log(props.title);
+  const getSingleBook = () =>{
+    props.getBook(props.id)
   }
 
   return (
@@ -56,35 +52,9 @@ const Book = (props) => {
       <img src={props.img} alt={props.title} />
       <h2 style={inlineStyles}>{props.title}</h2>
       <h4>{props.author}</h4>
-      <button onClick={props.getBook}>Display Title</button>
+      <button onClick={() => props.getBook(props.id)}>Display Title</button>
+      {/* <button onClick={getSingleBook}>Display Title</button> */}
     </article>
-  )
-}
-const Image = () => (
-  <img
-    src="https://images-na.ssl-images-amazon.com/images/I/91ZVf3kNrcL._AC_UL600_SR600,400_.jpg"
-    alt="Interesting Facts For Curious Minds"
-  />
-)
-
-const Title = () => {
-  const inlineStyles = {
-    color: '#617d98',
-    fontSize: '1rem',
-  }
-  return (
-    <h2 style={inlineStyles}>
-      The Let Them Theory: A Life-Changing Tool That Millions of People Can't
-      Stop Talking About
-    </h2>
-  )
-}
-
-const Author = () => {
-  return (
-    <h4 style={{ color: '#617d98', fontSize: '0.75rem', marginTop: '1rem' }}>
-      Mel Robbins
-    </h4>
   )
 }
 
