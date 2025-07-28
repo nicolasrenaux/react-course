@@ -1,7 +1,30 @@
-import { useState } from 'react';
+import { useState } from 'react'
+
 
 const UseStateObject = () => {
-  return <h2>useState object example</h2>;
-};
+  const [person, setPerson] = useState({
+    name: 'peter',
+    age: 24,
+    hobby: 'playing videogames'
+  })
 
-export default UseStateObject;
+  const showJhon = () =>{
+    // setPerson({name: 'jhon', age: 28, hobby: 'studying'})
+    // setPerson('shakeAndBake');
+    // setPerson({name: 'susan'});
+    setPerson({...person, name: 'susan'});
+  }
+
+  const {name, age, hobby} = person;
+
+  return (
+    <div>
+      <h1>{name}</h1>
+      <h1>{age}</h1>
+      <h1>Enjoys: {hobby}</h1>
+      <button onClick={showJhon} className='btn'>Show Jhon</button>
+    </div>
+  )
+}
+
+export default UseStateObject
