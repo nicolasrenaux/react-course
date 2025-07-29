@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const UseEffectBasics = () => {
   const [value, setValue] = useState(0);
@@ -7,6 +7,15 @@ const UseEffectBasics = () => {
   };
 
   sayHello();
+
+  // useEffects are basically functions that we can pass a condition for it to render whenever we want... in this case '[]' it will only render at mounting (first render)
+  useEffect(()=>{
+    const someFunc = async () =>{
+      await fetch
+    }
+    someFunc();
+    console.log("Hello from useEffect");
+  }, [])
 
   return (
     <div>

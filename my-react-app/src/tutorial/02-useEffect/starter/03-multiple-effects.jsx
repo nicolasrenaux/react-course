@@ -4,13 +4,15 @@ const MultipleEffects = () => {
   const [value, setValue] = useState(0);
   const [secondValue, setSecondValue] = useState(0);
 
-  // useEffect(() => {
-  //   console.log('hello from first useEffect');
-  // }, []);
+  // First use effect will only work when setting the first value... and the second one uses the same ideia, but for the second value...
 
-  // useEffect(() => {
-  //   console.log('hello from second useEffect');
-  // }, []);
+  useEffect(() => {
+    console.log('hello from first useEffect');
+  }, [value]);
+
+  useEffect(() => {
+    console.log('hello from second useEffect');
+  }, [secondValue]);
   return (
     <div>
       <h1>value : {value}</h1>
